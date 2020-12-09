@@ -6,6 +6,7 @@
   "types": "dist/src/gatsby-koa-capital.d.ts",
   "scripts": {
     "develop": "gatsby develop",
+    "deploy:github": "npm run build && node ./scripts/deploy-github",
     "build": "npm run clean && gatsby build",
     "deploy": "npm run clean && gatsby build --prefix-paths && gh-pages -d public",
     "serve": "gatsby serve",
