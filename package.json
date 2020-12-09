@@ -1,51 +1,95 @@
 {
-  "name": "gatsby-starter-grayscale",
+  "name": "@koa-capital/gatsby-koa-capital",
   "version": "0.0.1",
-  "description": "Gatsby.js V2 starter template based on Grayscale by startbootstrap",
+  "description": "Website for Koa Capital LLC",
+  "main": "dist/src/gatsby-koa-capital.js",
+  "types": "dist/src/gatsby-koa-capital.d.ts",
+  "scripts": {
+    "prepublishOnly": "npm run clean && npm run compile",
+    "compile": "tsc -b .",
+    "watch:compile": "nodemon -e 'ts json' -x 'npm run compile || true'",
+    "clean": "rimraf --no-glob dist",
+    "lint-staged": "lint-staged",
+    "ava": "ava -v",
+    "ava:fail-fast": "ava -v --fail-fast",
+    "ava:serial": "ava -v -s",
+    "watch:ava": "nodemon -e 'ts json' -x 'npm run ava || true'",
+    "watch:ava:fail-fast": "nodemon -e 'ts json' -x 'npm run ava:fail-fast || true'",
+    "watch:ava:serial": "nodemon -e 'ts json' -x 'npm run ava:serial || true'",
+    "watch:ava:bell": "nodemon -e 'ts json' -x 'npm run ava || echo -e \\\\a'",
+    "watch:ava:fail-fast:bell": "nodemon -e 'ts json' -x 'npm run ava:fail-fast || echo -e \\\\a'",
+    "watch:ava:serial:bell": "nodemon -e 'ts json' -x 'npm run ava:serial || echo -e \\\\a'",
+    "lint": "eslint --ext ts .",
+    "lint:fix": "eslint --ext ts --fix .",
+    "prettier:check": "prettier --list-different src/**/*.ts",
+    "prettier:write": "prettier --write src/**/*.ts",
+    "watch:lint": "nodemon -e 'ts js json' -x 'npm run lint || true'",
+    "test": "nyc ava",
+    "watch:test": "nodemon -e 'ts json' -x 'npm test || true'",
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "typedoc": "typedoc"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "pre-commit": "lint-staged",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anubhavsrivastava/gatsby-starter-grayscale.git"
+    "url": "git+https://github.com/koa-capital/gatsby-koa-capital.git"
   },
-  "author": {
-    "name": "Anubhav Srivastava",
-    "email": "anubhav.srivastava00@gmail.com"
-  },
-  "dependencies": {
-    "gatsby": "^2.4.3",
-    "gatsby-plugin-manifest": "^2.1.1",
-    "gatsby-plugin-offline": "^3.1.0",
-    "gatsby-plugin-react-helmet": "^3.0.12",
-    "gatsby-plugin-sass": "^2.0.11",
-    "node-sass": "^4.12.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.1",
-    "react-images": "^1.1.0",
-    "react-scrollspy": "^3.4.0",
-    "smoothscroll-polyfill": "^0.4.4"
-  },
-  "scripts": {
-    "develop": "gatsby develop",
-    "build": "npm run clean && gatsby build",
-    "deploy": "npm run clean && gatsby build --prefix-paths && gh-pages -d public",
-    "serve": "gatsby serve",
-    "clean": "rimraf .cache public",
-    "format": "prettier --write '**/*.js'",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "devDependencies": {
-    "gh-pages": "^2.0.1",
-    "prettier": "^1.17.0",
-    "rimraf": "^3.0.2"
-  },
-  "keywords": [
-    "gatsby",
-    "gatsby-starter",
-    "gatsby-starter-grayscale"
-  ],
-  "license": "MIT",
+  "author": "Amchelle Clendenin <amchelle.clendenin@utexas.edu> (https://github.com/amchelle)",
+  "license": "SEE LICENSE IN <LICENSE>",
   "bugs": {
-    "url": "https://github.com/anubhavsrivastava/gatsby-starter-grayscale/issues"
+    "url": "https://github.com/koa-capital/gatsby-koa-capital/issues"
   },
-  "homepage": "https://github.com/anubhavsrivastava/gatsby-starter-grayscale#readme"
+  "homepage": "https://github.com/koa-capital/gatsby-koa-capital",
+  "devDependencies": {
+    "@types/node": "^13.7.4",
+    "@typescript-eslint/eslint-plugin": "^2.20.0",
+    "@typescript-eslint/parser": "^2.20.0",
+    "ava": "^3.4.0",
+    "ava-fast-check": "^1.1.2",
+    "codecov": "^3.6.5",
+    "eslint": "^6.8.0",
+    "fast-check": "^1.22.2",
+    "lint-staged": "^10.0.7",
+    "nyc": "^15.0.0",
+    "pre-commit": "^1.2.2",
+    "prettier": "1.19.1",
+    "rimraf": "^3.0.2",
+    "ts-node": "^8.6.2",
+    "typedoc": "^0.16.10",
+    "typedoc-plugin-markdown": "^2.2.16",
+    "typescript": "^3.8.2"
+  },
+  "files": [
+    "dist/src/"
+  ],
+  "ava": {
+    "files": [
+      "!dist/**/*.d.ts",
+      "test/**/test-*.ts"
+    ],
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
+  },
+  "nyc": {
+    "include": [
+      "src/*.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
+  },
+  "private": true
 }

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Scroll from './Scroll';
 import config from '../../config';
+import chart from '../assets/img/website-icon.png';
+
 export default class Header extends Component {
   constructor(props) {
     super(props);
@@ -40,9 +42,12 @@ export default class Header extends Component {
         id="mainNav"
       >
         <div className="container">
+            <img src={chart} className="img-fluid" alt="" width="50"/>
           <a className="navbar-brand" href="#page-top">
             {config.siteTitle}
           </a>
+
+
           <button
             onClick={_ => this.toggleMenu(!openMenu)}
             className={`navbar-toggler navbar-toggler-right ${
@@ -72,17 +77,7 @@ export default class Header extends Component {
                   </a>
                 </Scroll>
               </li>
-              <li className="nav-item">
-                <Scroll
-                  onClick={_ => this.toggleMenu(!openMenu)}
-                  type="id"
-                  element="projects"
-                >
-                  <a className="nav-link" href="#projects">
-                    Projects
-                  </a>
-                </Scroll>
-              </li>
+
               <li className="nav-item">
                 <Scroll
                   onClick={_ => this.toggleMenu(!openMenu)}

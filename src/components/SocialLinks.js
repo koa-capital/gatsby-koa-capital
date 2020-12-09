@@ -12,7 +12,17 @@ export default function SocialLinks() {
                 <i className="fas fa-map-marked-alt text-primary mb-2"></i>
                 <h4 className="text-uppercase m-0">Address</h4>
                 <hr className="my-4" />
-                <div className="small text-black-50">{config.address}</div>
+                <div className="small text-black-50">
+                  Lower Office
+                  <br />
+                  The Farmhouse
+                  <br />
+                  Mile 57 George Price Highway
+                  <br />
+                  Red Creek
+                  <br />
+                  Cayo, Belize, Central America
+                </div>
               </div>
             </div>
           </div>
