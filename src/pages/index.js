@@ -13,8 +13,8 @@ const IndexPage = () => (
   <Layout>
     <Header />
 
-    <header className="masthead" id="page-top">
-      <div className="container d-flex h-100 align-items-center">
+    <header className="masthead backgroundChart" id="page-top">
+       <div className="container d-flex h-100 align-items-center">
         <div className="mx-auto text-center">
           <h1 className="mx-auto my-0 text-uppercase">Koa Capital</h1>
           <h2 className="text-white mx-auto mt-2 mb-5">
